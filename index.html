@@ -24,51 +24,44 @@
             margin: 50px auto 10px auto;
             width: 10em;
             user-select: none;
-            animation-duration: 6s;
+            animation-duration: 4s;
             animation-iteration-count: infinite;
             animation-name: hokus-pokus;
+            animation-direction: alternate;
         }
         @keyframes hokus-pokus {
-            0% {
+            from {
                 opacity: 100%;
             }
-            50% {
+            to {
                 opacity: 0%;
-            }
-            100% {
-                opacity: 100%;
             }
         }
         .span-logo {
             font-size: 8em;
             font-weight: 700;
         }        
-        .span-logo-right {            
-            animation-duration: 18s;
+        .span-logo-right {
+            animation-duration: 16s;
             animation-iteration-count: infinite;
             animation-name: colorize;
+            animation-direction: alternate;
         }
         @keyframes colorize {
             0% {
-                color: #fff;
-            }
-            15% {
                 color: #56e790;
             }
-            30% {
+            25% {
+                color: #fff;
+            }
+            50% {
                 color: #aa8dd8;
             }
-            45% {
-                color: #ffcc4d;
-            }
-            60% {
-                color: #ea596e;
-            }
             75% {
-                color: #dd2e44;
-            }
-            90% {
                 color: #fff;
+            }
+            100% {
+                color: #dd2e44;
             }
         }
         .container {
