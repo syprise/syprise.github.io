@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>syprise</title>
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="bulma.min.css" />
         <style type="text/css">
             body {
                 color: #050028;
@@ -12,67 +13,187 @@
                 font-family: sans-serif;
                 text-align: center;
             }
+
             main {
                 margin: 50px auto;
             }
+
             a {
                 color: #fff;
-                text-decoration: none;                
+                text-decoration: none;
             }
+
             .syprise {
                 background-color: #fff;
-                margin: 100px auto;
+                margin: 100px auto 0;
                 user-select: none;
             }
+
             .syprise img {
                 background-color: #fff;
                 margin: 0 auto;
                 width: 18em;
-                user-select: none;                
+                user-select: none;
             }
+
             .contact {
                 width: 250px;
                 margin: 0 auto;
                 padding: 1em;
                 opacity: 0%;
             }
+
             .contact:hover {
                 transition: all 0.5s linear;
                 opacity: 100%;
             }
+
             .span-contact {
                 font-size: 1em;
                 font-weight: 100;
                 font-family: sans-serif;
             }
+
             .span-contact-at {
                 color: #aa8dd8;
             }
+
             @media only screen and (max-width: 600px) {
                 .span-logo {
                     font-size: 10em;
                 }
+
                 .span-contact {
                     font-size: 0.9em;
                 }
             }
+
             @media only screen and (max-width: 450px) {
                 .span-logo {
                     font-size: 8em;
                 }
+
                 .span-contact {
                     font-size: 0.8em;
                 }
             }
         </style>
     </head>
+
     <body>
         <main>
             <div class="syprise">
-                <img src="surpriz-logo.png"/>              
+                <img src="surpriz-logo.png" />
             </div>
+            <!--
+            Başlıyor
+            -->
+
+            <section class="section">
+                <div class="is-mobile container">
+                    <div class="columns is-centered">
+                        <div class="column is-one-fifth">
+                            <form
+                                id="my-form"
+                                action="https://formspree.io/f/xkndopqq"
+                                method="POST"
+                            >
+                                <div class="field">
+                                    <label
+                                        class="label"
+                                        style="color: #050028; display: none"
+                                        >Your Message</label
+                                    >
+                                    <div class="control">
+                                        <input
+                                            class="input"
+                                            type="email"
+                                            name="email"
+                                            placeholder="Enter your email"
+                                            value=""
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <div class="control">
+                                        <textarea
+                                            name="message"
+                                            class="textarea"
+                                            placeholder="Enter your message"
+                                            minlength="5"
+                                            required
+                                        ></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <div class="control">
+                                        <button
+                                            id="my-form-button"
+                                            class="button is-light is-fullwidth"
+                                        >
+                                            Submit
+                                        </button>
+                                    </div>
+                                    <div><p id="my-form-status"></p></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <script>
+                var form = document.getElementById("my-form");
+
+                async function handleSubmit(event) {
+                    event.preventDefault();
+                    var status = document.getElementById("my-form-status");
+                    var data = new FormData(event.target);
+                    fetch(event.target.action, {
+                        method: form.method,
+                        body: data,
+                        headers: {
+                            Accept: "application/json",
+                        },
+                    })
+                        .then((response) => {
+                            if (response.ok) {
+                                status.innerHTML =
+                                    "Thanks for your submission!";
+                                form.reset();
+                            } else {
+                                response.json().then((data) => {
+                                    if (Object.hasOwn(data, "errors")) {
+                                        status.innerHTML = data["errors"]
+                                            .map((error) => error["message"])
+                                            .join(", ");
+                                    } else {
+                                        status.innerHTML =
+                                            "Oops! There was a problem submitting your form";
+                                    }
+                                });
+                            }
+                        })
+                        .catch((error) => {
+                            status.innerHTML =
+                                "Oops! There was a problem submitting your form";
+                        });
+                }
+                function clearErrorMessage() {
+                    let status = document.getElementById("my-form-status");
+                    if (status.innerText.length > 0) status.innerText = "";
+                }
+                form.addEventListener("submit", handleSubmit);
+                form.addEventListener("keydown", clearErrorMessage);
+            </script>
+
             <div class="contact">
-                <span class="span-contact"><span id="span-hello">ehlo</span><span class="span-contact-at">&#64;</span>syprise.com</span>
+                <span class="span-contact"
+                    ><span id="span-hello">ehlo</span
+                    ><span class="span-contact-at">&#64;</span>syprise.com</span
+                >
             </div>
         </main>
         <script>
