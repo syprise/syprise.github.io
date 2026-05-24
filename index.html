@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sürpriz Bilgi Sistemleri - Büyük ölçekli kurumsal yazılım mimarisi tasarımı, mikroservis dönüşümü, performans optimizasyonu ve bulut yerel altyapı danışmanlığı.">
+  <meta name="keywords" content="yazılım mimarisi, clean architecture, mikroservis, sistem tasarımı, bulut mimarisi, domain driven design, yüksek performans">
+  <meta name="author" content="Sürpriz Bilgi Sistemleri">
+  <title>Sürpriz Bilgi Sistemleri | Güvenilir ve Ölçeklenebilir Yazılım Mimarisi</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header id="site-header" class="header">
+    <div class="container">
+      <a href="#" class="logo" id="header-logo">
+        <img src="images/surpriz_logo_5_cleaned.png" alt="Sürpriz Logo" class="logo-img">
+        <div class="logo-text">Sürpriz <span>Sistemleri</span></div>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#biz-kimiz" class="nav-link">Biz Kimiz</a>
+        <a href="#hizmetlerimiz" class="nav-link">Hizmetlerimiz</a>
+        <a href="#projelerimiz" class="nav-link">Projelerimiz</a>
+        <a href="#iletisim" class="nav-link">İletişim</a>
+      </nav>
+      
+      <div class="nav-btn">
+        <a href="#iletisim" class="btn btn-secondary">Analiz Talep Et</a>
+      </div>
+
+      <div class="menu-toggle" id="menu-toggle" aria-label="Menüyü Aç">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero glow-effect">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tagline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+            Yazılım Mimarisi & Güvenilirlik
+          </div>
+          <h1 class="hero-title">Ölçeklenebilir Sistemler, <span>Sürprizsiz</span> Altyapılar</h1>
+          <p class="hero-desc">Büyük ölçekli veri akışları, mikroservis dönüşümleri ve yüksek performans gerektiren kurumsal sistemler için sıfır-hata odaklı modern yazılım mimarileri tasarlıyoruz.</p>
+          <div class="hero-actions">
+            <a href="#iletisim" class="btn btn-primary">Bizimle Çalışın</a>
+            <a href="#projelerimiz" class="btn btn-secondary">Projeleri İnceleyin</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item" id="stat-requests">
+              <h3 data-target="50" data-suffix="M+">0</h3>
+              <p>Günlük İstek Oranı</p>
+            </div>
+            <div class="stat-item" id="stat-sla">
+              <h3 data-target="99" data-decimals="2" data-suffix="%">0</h3>
+              <p>Çalışma Süresi (SLA)</p>
+            </div>
+            <div class="stat-item" id="stat-projects">
+              <h3 data-target="200" data-suffix="+">0</h3>
+              <p>Tamamlanan Projeler</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visualizer" id="hero-visualizer">
+          <div class="visualizer-container">
+            <canvas id="arch-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Biz Kimiz Section -->
+  <section id="biz-kimiz" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Biz Kimiz</span>
+        <h2 class="section-title">Mimari Tasarım Felsefemiz</h2>
+        <p class="section-desc">Yazılımın bir sanat olduğuna değil, sağlam temellere oturan yapısal bir mühendislik disiplini olduğuna inanıyoruz.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-content">
+          <h3>Yüksek Erişilebilirlik ve Temiz Kod</h3>
+          <p style="margin-bottom: 24px;">Sürpriz Bilgi Sistemleri olarak, karmaşık teknik sistemleri sadeleştirmek ve gelecekteki yüklere karşı dayanıklı hale getirmek için çalışıyoruz. Çözümlerimizde Domain-Driven Design (DDD), Event-Driven Architecture ve Clean Architecture prensiplerini uyguluyoruz.</p>
+          
+          <div class="about-philosophy">
+            <div class="philosophy-item" id="phil-scalability">
+              <div class="philosophy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <div class="philosophy-text">
+                <h4 class="philosophy-title">Ölçeklenebilirlik</h4>
+                <p class="philosophy-desc">Anlık yoğunluklarda otomatik büyüyebilen, kaynakları optimum kullanan dağıtık topolojiler tasarlıyoruz.</p>
+              </div>
+            </div>
+            
+            <div class="philosophy-item" id="phil-security">
+              <div class="philosophy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <div class="philosophy-text">
+                <h4 class="philosophy-title">Katı Güvenlik Standartları</h4>
+                <p class="philosophy-desc">Veri iletişimini, yetkilendirme mekanizmalarını (RBAC/OAuth2) ve API katmanlarını en baştan güvenli inşa ediyoruz.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Architecture Layers Accordion/Detailer -->
+        <div class="about-visual">
+          <div class="arch-connector"></div>
+          
+          <div class="arch-layer glass-card active" data-layer="client" id="layer-client">
+            <span class="layer-num">L1</span>
+            <div class="layer-info">
+              <h4>İstemci Katmanı (Client Edge)</h4>
+              <p>Statik içerik dağıtımı, CDN entegrasyonu ve akıllı yönlendirme.</p>
+            </div>
+          </div>
+
+          <div class="arch-layer glass-card" data-layer="gateway" id="layer-gateway">
+            <span class="layer-num">L2</span>
+            <div class="layer-info">
+              <h4>API Ağ Geçidi (API Gateway)</h4>
+              <p>Güvenlik duvarı, rate limiting ve dinamik mikroservis yönlendirme.</p>
+            </div>
+          </div>
+
+          <div class="arch-layer glass-card" data-layer="services" id="layer-services">
+            <span class="layer-num">L3</span>
+            <div class="layer-info">
+              <h4>Mikroservisler (Service Grid)</h4>
+              <p>Domain odaklı, gevşek bağlı (loosely-coupled) bağımsız servisler.</p>
+            </div>
+          </div>
+
+          <div class="arch-layer glass-card" data-layer="event" id="layer-event">
+            <span class="layer-num">L4</span>
+            <div class="layer-info">
+              <h4>Olay Veri Yolu (Event Broker)</h4>
+              <p>Asenkron haberleşme ve yüksek verimli veri akışı kuyrukları.</p>
+            </div>
+          </div>
+
+          <div class="arch-layer glass-card" data-layer="db" id="layer-db">
+            <span class="layer-num">L5</span>
+            <div class="layer-info">
+              <h4>Veri Katmanı (Partitioned Storage)</h4>
+              <p>Replike, parça parça dağıtılmış yüksek tutarlılıklı veri tabanları.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hizmetlerimiz Section -->
+  <section id="hizmetlerimiz" class="section glow-effect" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Hizmetlerimiz</span>
+        <h2 class="section-title">Neler Yapıyoruz?</h2>
+        <p class="section-desc">Sorunsuz ve uzun ömürlü yazılım sistemleri için uçtan uca mimari hizmetler sağlıyoruz.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card glass-card" id="service-audit">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line></svg>
+          </div>
+          <h3>Sistem Mimarisi & Denetim</h3>
+          <p>Mevcut teknik borçlarınızı (technical debt) analiz ediyor, tıkanıklık noktalarını tespit ediyor ve sisteminizin geleceğini optimize edecek mimari planlar hazırlıyoruz.</p>
+          <div class="service-bullets">
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Kod Analizi ve Refactoring Planları</span>
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Ölçeklenebilirlik ve Darboğaz Tespiti</span>
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Teknik Borç Yönetimi</span>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card glass-card" id="service-microservices">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          </div>
+          <h3>Mikroservis & Bulut Dönüşümü</h3>
+          <p>Monolitik yapıdaki uygulamalarınızı işlevsel ve bağımsız parçalara (microservices) ayırıyor, bulut sunucularda yüksek erişilebilirlikle koordine ediyoruz.</p>
+          <div class="service-bullets">
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Domain-Driven Design (DDD) Analizi</span>
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Container & Kubernetes Dönüşümü</span>
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> CI/CD Altyapı Entegrasyonu</span>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card glass-card" id="service-performance">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <h3>Yüksek Performans Optimizasyonu</h3>
+          <p>Yüksek trafik altında ezilen veritabanlarını, gecikmeli çalışan API'leri ve hafıza sızıntılarını gidererek sistem yanıt hızını milisaniyeler seviyesine indiriyoruz.</p>
+          <div class="service-bullets">
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Distributed Caching (Redis/Memcached)</span>
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Veritabanı İndeksleme ve Sorgu Optimizasyonu</span>
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Asenkron Mimari Entegrasyonları</span>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card glass-card" id="service-consulting">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h3>Kurumsal Mimari Danışmanlığı</h3>
+          <p>Yazılım geliştirme ekiplerinize doğru tasarım kalıplarını (design patterns), Clean Code yönergelerini ve gelişmiş dağıtık sistem mimarilerini öğretiyoruz.</p>
+          <div class="service-bullets">
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Tasarım Kalıpları ve Pratikleri</span>
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Ekip içi Mimari Mentorluğu</span>
+            <span class="service-bullet"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Standart Oluşturma ve Yönetim</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projelerimiz Section -->
+  <section id="projelerimiz" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Projelerimiz</span>
+        <h2 class="section-title">İnşa Ettiğimiz Mimariler</h2>
+        <p class="section-desc">Geliştirdiğimiz bazı mimari altyapı çözümleri ve elde ettikleri performans metrikleri.</p>
+      </div>
+
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">Tümü</button>
+        <button class="filter-btn" data-filter="cloud">Bulut & Dağıtık</button>
+        <button class="filter-btn" data-filter="data">Veri & Senkronizasyon</button>
+        <button class="filter-btn" data-filter="security">API & Güvenlik</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card glass-card" data-category="cloud" id="project-aethermesh">
+          <div class="project-meta">
+            <span class="project-badge">Orkestrasyon</span>
+            <span class="project-perf">50k+ req/sec</span>
+          </div>
+          <h3>AetherMesh Broker</h3>
+          <p>Yüksek throughput gerektiren asenkron mikroservis haberleşmesini koordine eden, dinamik mesaj yönlendirmeli ve düşük gecikmeli bir event broker altyapısı.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Go</span>
+            <span class="tech-tag">gRPC</span>
+            <span class="tech-tag">Kubernetes</span>
+            <span class="tech-tag">Kafka</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card glass-card" data-category="data" id="project-chronosdb">
+          <div class="project-meta">
+            <span class="project-badge">Veritabanı</span>
+            <span class="project-perf">&lt; 2ms Senkronizasyon</span>
+          </div>
+          <h3>ChronosDB Sync</h3>
+          <p>Çoklu coğrafi bölgede (multi-region) çalışan dağıtık veritabanları arasında nihai tutarlılık (eventual consistency) sağlayan gerçek zamanlı veri eşitleme motoru.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Rust</span>
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">WebSockets</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card glass-card" data-category="security" id="project-apexgateway">
+          <div class="project-meta">
+            <span class="project-badge">Güvenlik</span>
+            <span class="project-perf">0.4ms Yönlendirme</span>
+          </div>
+          <h3>ApexGateway</h3>
+          <p>Servis mesh yapıları için geliştirilmiş, JWT imza doğrulama, dinamik kota yönetimi (rate limit) ve DDoS engelleme mekanizmalarını edge üzerinde çalıştıran API Gateway.</p>
+          <div class="project-tech">
+            <span class="tech-tag">WebAssembly</span>
+            <span class="tech-tag">Rust</span>
+            <span class="tech-tag">Envoy Proxy</span>
+            <span class="tech-tag">Redis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- İletişim Section -->
+  <section id="iletisim" class="section" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-header">
+            <span class="section-tag">İletişim</span>
+            <h3>Sistemlerinizi Birlikte Tasarlayalım</h3>
+            <p>Mimari sorunlarınızı çözmek, performans tıkanıklıklarını gidermek ya da ekibinizin tasarım standartlarını iyileştirmek için ilk adımı atın.</p>
+          </div>
+          
+          <div class="contact-details">
+            <div class="contact-item" id="contact-mail">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="contact-text">
+                <h4>E-Posta</h4>
+                <p>mimari@surprizbilgi.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-item" id="contact-location">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="contact-text">
+                <h4>Ofis</h4>
+                <p>Teknokent Teknoloji Merkezi, Blok B, İstanbul</p>
+              </div>
+            </div>
+          </div>
+          
+          <div style="font-size: 0.85rem; color: var(--text-muted);">
+            * Ortalama geri dönüş süremiz 24 saattir.
+          </div>
+        </div>
+
+        <div class="contact-form-container glass-card">
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <input type="text" id="name" name="name" class="form-input" placeholder=" " required autocomplete="name">
+              <label for="name" class="form-label">Ad Soyad</label>
+            </div>
+            
+            <div class="form-group">
+              <input type="email" id="email" name="email" class="form-input" placeholder=" " required autocomplete="email">
+              <label for="email" class="form-label">E-Posta Adresi</label>
+            </div>
+            
+            <div class="form-group">
+              <select id="subject" name="subject" class="form-input" required style="padding-top: 10px; padding-bottom: 10px;">
+                <option value="" disabled selected hidden></option>
+                <option value="audit">Mimari İnceleme & Denetim</option>
+                <option value="microservices">Mikroservis Geçişi</option>
+                <option value="perf">Performans Optimizasyonu</option>
+                <option value="other">Diğer Konular</option>
+              </select>
+              <label for="subject" class="form-label" style="top: -10px; left: 12px; font-size: 0.75rem; background: var(--bg-primary); padding: 2px 8px; color: var(--primary); border-radius: 4px; border: 1px solid var(--border-color);">Talep Türü</label>
+            </div>
+            
+            <div class="form-group">
+              <textarea id="message" name="message" class="form-input" placeholder=" " required></textarea>
+              <label for="message" class="form-label">Projenizin Detayları</label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">
+              Analiz İsteğini Gönder
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+            
+            <div id="form-response" class="form-response"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="images/surpriz_logo_5_cleaned.png" alt="Sürpriz Logo" class="logo-img">
+            <div class="logo-text">Sürpriz <span>Sistemleri</span></div>
+          </a>
+          <p>Yüksek yüklü uygulamalar için sürprizsiz, ölçeklenebilir ve temiz sistem mimarileri inşa ediyoruz.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Kategoriler</h4>
+          <ul>
+            <li><a href="#biz-kimiz">Biz Kimiz</a></li>
+            <li><a href="#hizmetlerimiz">Hizmetlerimiz</a></li>
+            <li><a href="#projelerimiz">Projelerimiz</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Uzmanlıklar</h4>
+          <ul>
+            <li><a href="#biz-kimiz">Temiz Mimari</a></li>
+            <li><a href="#hizmetlerimiz">Mikroservis Dağılımı</a></li>
+            <li><a href="#hizmetlerimiz">Dağıtık Veritabanları</a></li>
+            <li><a href="#hizmetlerimiz">Event-Driven Design</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sürpriz Bilgi Sistemleri. Tüm Hakları Saklıdır.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script File -->
+  <script src="script.js"></script>
+</body>
+</html>
