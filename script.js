@@ -454,33 +454,44 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // 2. Submit simulator with dynamic button states
+    // 2. Send form data to Cloudflare Worker
     submitBtn.disabled = true;
-    
-    // Save original button content to restore later
-    const originalBtnText = submitBtn.textContent;
+    const originalBtnContent = submitBtn.innerHTML;
     submitBtn.textContent = 'İstek Gönderiliyor...';
 
-    // Simulate async API call with timeout
-    setTimeout(() => {
-      // Restore button state
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalBtnText;
+    fetch('https://api.syprise.com/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email, subject, message })
+    })
+    .then(async (response) => {
+      const resData = await response.json();
+      if (!response.ok) {
+        throw new Error(resData.error || 'İstek gönderilirken bir hata oluştu.');
+      }
 
       // Reset form controls
       contactForm.reset();
       
       // Trigger floating label repositioning manually
       document.querySelectorAll('.form-input').forEach(input => {
-        // Trigger blur/reset classes
         input.dispatchEvent(new Event('blur'));
       });
 
       // Show success callback safely (escape input inside presentation payload)
       const safeName = sanitizeInput(name);
-      showResponse(`Teşekkürler Sayın ${safeName}, mimari analiz talebiniz başarıyla kaydedildi. 24 saat içinde dönüş yapacağız.`, 'success');
-
-    }, 1500);
+      showResponse(`Teşekkürler Sayın ${safeName}, mimari analiz talebiniz başarıyla iletildi. En kısa sürede dönüş yapacağız.`, 'success');
+    })
+    .catch((error) => {
+      showResponse(`Hata: ${error.message}`, 'error');
+    })
+    .finally(() => {
+      // Restore button state
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnContent;
+    });
   });
 
   // Display form status message helper using textContent for XSS prevention
