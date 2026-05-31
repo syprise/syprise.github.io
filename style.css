@@ -5,25 +5,26 @@
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Outfit', sans-serif;
 
-  /* HSL Color Palette */
-  --bg-primary: hsl(224, 39%, 7%);
-  --bg-secondary: hsl(222, 36%, 10%);
-  --bg-card: hsla(223, 33%, 13%, 0.55);
-  --bg-card-hover: hsla(223, 33%, 18%, 0.85);
+  /* HSL Color Palette - Light Theme (Ivory, Fuchsia, Lime Cream, Beige) */
+  --bg-primary: hsl(60, 30%, 98%);
+  --bg-secondary: hsl(48, 20%, 94%);
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
   
-  --border-color: hsla(223, 30%, 20%, 0.4);
-  --border-hover: hsla(239, 84%, 67%, 0.45);
+  --border-color: rgba(183, 173, 153, 0.25);
+  --border-hover: rgba(255, 0, 96, 0.4);
   
-  --text-primary: hsl(210, 40%, 98%);
-  --text-secondary: hsl(215, 25%, 72%);
-  --text-muted: hsl(215, 16%, 57%);
+  --text-primary: hsl(60, 50%, 4%);
+  --text-secondary: hsl(60, 20%, 25%);
+  --text-muted: hsl(40, 15%, 45%);
   
-  --primary: hsl(239, 84%, 67%);      /* Electric Indigo */
-  --primary-glow: hsla(239, 84%, 67%, 0.25);
-  --secondary: hsl(189, 94%, 43%);    /* Neon Cyan */
-  --secondary-glow: hsla(189, 94%, 43%, 0.25);
-  --accent: hsl(38, 92%, 50%);         /* Amber/Gold */
-  --accent-glow: hsla(38, 92%, 50%, 0.25);
+  --primary: hsl(337, 100%, 50%);      /* Hot Fuchsia */
+  --primary-glow: rgba(255, 0, 96, 0.15);
+  --secondary: hsl(65, 72%, 68%);      /* Lime Cream */
+  --secondary-glow: rgba(222, 232, 114, 0.15);
+  --secondary-text: hsl(65, 60%, 28%); /* Dark Olive for contrast */
+  --accent: hsl(40, 17%, 66%);         /* Khaki Beige */
+  --accent-glow: rgba(183, 173, 153, 0.15);
 
   --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   --gradient-dark: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
@@ -158,7 +159,7 @@ button, input, textarea, select {
 
 .glass-card:hover {
   border-color: var(--border-hover);
-  box-shadow: 0 10px 30px -10px hsla(239, 84%, 67%, 0.1);
+  box-shadow: 0 10px 30px -10px rgba(183, 173, 153, 0.25), 0 4px 12px -2px rgba(255, 0, 96, 0.08);
   transform: translateY(-4px);
 }
 
@@ -198,11 +199,11 @@ button, input, textarea, select {
 
 .btn-primary {
   background: var(--gradient-primary);
-  color: var(--text-primary);
-  box-shadow: 0 4px 15px -3px hsla(239, 84%, 67%, 0.4);
+  color: #ffffff;
+  box-shadow: 0 4px 15px -3px rgba(255, 0, 96, 0.4);
 }
 .btn-primary:hover {
-  box-shadow: 0 4px 25px 0px hsla(189, 94%, 43%, 0.6);
+  box-shadow: 0 4px 25px 0px rgba(222, 232, 114, 0.5);
   transform: translateY(-2px);
 }
 
@@ -210,11 +211,11 @@ button, input, textarea, select {
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   backdrop-filter: var(--glass-blur);
-  background: hsla(210, 40%, 98%, 0.03);
+  background: rgba(183, 173, 153, 0.08);
 }
 .btn-secondary:hover {
   border-color: var(--text-primary);
-  background: hsla(210, 40%, 98%, 0.08);
+  background: rgba(183, 173, 153, 0.18);
   transform: translateY(-2px);
 }
 
@@ -230,7 +231,7 @@ button, input, textarea, select {
 }
 
 .header.scrolled {
-  background: hsla(224, 39%, 7%, 0.8);
+  background: rgba(255, 255, 243, 0.85);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid var(--border-color);
@@ -287,7 +288,11 @@ button, input, textarea, select {
 }
 
 .logo-text span {
-  color: var(--secondary);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .nav-menu {
@@ -386,10 +391,10 @@ button, input, textarea, select {
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
-  background: hsla(239, 84%, 67%, 0.1);
-  border: 1px solid hsla(239, 84%, 67%, 0.2);
+  background: rgba(255, 0, 96, 0.08);
+  border: 1px solid rgba(255, 0, 96, 0.18);
   border-radius: 50px;
-  color: var(--secondary);
+  color: var(--primary);
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 24px;
@@ -467,7 +472,7 @@ button, input, textarea, select {
   position: relative;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, hsla(223, 33%, 13%, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(183, 173, 153, 0.25) 0%, transparent 70%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -501,8 +506,8 @@ button, input, textarea, select {
 .philosophy-icon {
   width: 48px;
   height: 48px;
-  background: hsla(239, 84%, 67%, 0.1);
-  border: 1px solid hsla(239, 84%, 67%, 0.2);
+  background: rgba(255, 0, 96, 0.08);
+  border: 1px solid rgba(255, 0, 96, 0.18);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -577,8 +582,8 @@ button, input, textarea, select {
   font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--secondary);
-  opacity: 0.7;
+  color: var(--secondary-text);
+  opacity: 0.8;
 }
 
 .layer-info h4 {
@@ -618,12 +623,12 @@ button, input, textarea, select {
   width: 56px;
   height: 56px;
   border-radius: 12px;
-  background: hsla(189, 94%, 43%, 0.1);
-  border: 1px solid hsla(189, 94%, 43%, 0.2);
+  background: rgba(222, 232, 114, 0.08);
+  border: 1px solid rgba(222, 232, 114, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--secondary);
+  color: var(--secondary-text);
   margin-bottom: 24px;
   transition: var(--transition-normal);
 }
@@ -661,7 +666,7 @@ button, input, textarea, select {
 }
 
 .service-bullet svg {
-  color: var(--secondary);
+  color: var(--secondary-text);
   flex-shrink: 0;
 }
 
@@ -720,9 +725,9 @@ button, input, textarea, select {
   font-size: 0.75rem;
   padding: 4px 10px;
   border-radius: 50px;
-  background: hsla(38, 92%, 50%, 0.1);
-  border: 1px solid hsla(38, 92%, 50%, 0.2);
-  color: var(--accent);
+  background: rgba(255, 0, 96, 0.08);
+  border: 1px solid rgba(255, 0, 96, 0.18);
+  color: var(--primary);
   font-weight: 600;
 }
 
@@ -730,7 +735,7 @@ button, input, textarea, select {
   font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--secondary);
+  color: var(--secondary-text);
 }
 
 .project-card h3 {
@@ -797,8 +802,8 @@ button, input, textarea, select {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: hsla(239, 84%, 67%, 0.1);
-  border: 1px solid hsla(239, 84%, 67%, 0.2);
+  background: rgba(255, 0, 96, 0.08);
+  border: 1px solid rgba(255, 0, 96, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -806,15 +811,15 @@ button, input, textarea, select {
 }
 
 #contact-whatsapp .contact-icon {
-  background: hsla(209, 55%, 23%, 0.15);
-  border-color: hsla(209, 55%, 23%, 0.35);
-  color: hsl(209, 90%, 55%);
+  background: rgba(222, 232, 114, 0.08);
+  border-color: rgba(222, 232, 114, 0.18);
+  color: var(--secondary-text);
 }
 
 #contact-whatsapp:hover .contact-icon {
-  background: hsl(209, 55%, 23%);
-  color: var(--text-primary);
-  box-shadow: 0 0 15px hsla(209, 55%, 23%, 0.45);
+  background: var(--secondary);
+  color: #030301;
+  box-shadow: 0 0 15px rgba(222, 232, 114, 0.4);
 }
 
 .contact-text h4 {
@@ -841,7 +846,7 @@ button, input, textarea, select {
 .form-input {
   width: 100%;
   padding: 16px;
-  background: hsla(222, 36%, 8%, 0.6);
+  background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-sm);
   color: var(--text-primary);
@@ -852,7 +857,7 @@ button, input, textarea, select {
 .form-input:focus {
   border-color: var(--primary);
   box-shadow: 0 0 10px var(--primary-glow);
-  background: hsla(222, 36%, 12%, 0.8);
+  background: #ffffff;
 }
 
 .form-label {
@@ -952,7 +957,7 @@ textarea.form-input {
 }
 
 .footer-links a:hover {
-  color: var(--secondary);
+  color: var(--secondary-text);
   padding-left: 4px;
 }
 
@@ -983,8 +988,8 @@ textarea.form-input {
 }
 
 .social-icon:hover {
-  border-color: var(--secondary);
-  color: var(--secondary);
+  border-color: var(--secondary-text);
+  color: var(--secondary-text);
   transform: translateY(-2px);
 }
 
@@ -1121,4 +1126,46 @@ textarea.form-input {
     gap: 16px;
     text-align: center;
   }
+}
+
+/* Custom Dropdown Styling */
+.dropdown-container {
+  position: relative;
+}
+
+.custom-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--primary);
+  border-top: none;
+  border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+  padding: 8px;
+  z-index: 100;
+  display: none;
+  box-shadow: 0 8px 20px var(--primary-glow);
+  box-sizing: border-box;
+}
+
+/* Adjust input border-radius when dropdown is open */
+.dropdown-container.open .form-input {
+  border-color: var(--primary);
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.dropdown-item {
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: var(--transition-fast);
+}
+
+.dropdown-item:hover {
+  background: rgba(222, 232, 114, 0.15);
+  color: var(--secondary-text);
 }

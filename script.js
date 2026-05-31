@@ -130,17 +130,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Nodes representing our architectural layers (coordinates & labels)
     // Structured in a hierarchy: Client -> Gateway -> Services -> MessageBus -> Storage
     const nodes = [
-      { id: 'client', x: 0.5, y: 0.15, label: 'L1: Client Edge', type: 'client', active: true, pulseSize: 0, glowColor: 'rgba(6, 182, 212, ' }, // cyan
-      { id: 'gateway', x: 0.5, y: 0.35, label: 'L2: API Gateway', type: 'gateway', active: false, pulseSize: 0, glowColor: 'rgba(99, 102, 241, ' }, // indigo
+      { id: 'client', x: 0.5, y: 0.15, label: 'L1: Client Edge', type: 'client', active: true, pulseSize: 0, glowColor: 'rgba(222, 232, 114, ' }, // Lime Cream
+      { id: 'gateway', x: 0.5, y: 0.35, label: 'L2: API Gateway', type: 'gateway', active: false, pulseSize: 0, glowColor: 'rgba(255, 0, 96, ' }, // Hot Fuchsia
       // Microservices layer
-      { id: 'service-a', x: 0.25, y: 0.55, label: 'L3: AuthService', type: 'services', active: false, pulseSize: 0, glowColor: 'rgba(99, 102, 241, ' },
-      { id: 'service-b', x: 0.5, y: 0.55, label: 'L3: Core Engine', type: 'services', active: false, pulseSize: 0, glowColor: 'rgba(99, 102, 241, ' },
-      { id: 'service-c', x: 0.75, y: 0.55, label: 'L3: BillingService', type: 'services', active: false, pulseSize: 0, glowColor: 'rgba(99, 102, 241, ' },
+      { id: 'service-a', x: 0.25, y: 0.55, label: 'L3: AuthService', type: 'services', active: false, pulseSize: 0, glowColor: 'rgba(255, 0, 96, ' },
+      { id: 'service-b', x: 0.5, y: 0.55, label: 'L3: Core Engine', type: 'services', active: false, pulseSize: 0, glowColor: 'rgba(255, 0, 96, ' },
+      { id: 'service-c', x: 0.75, y: 0.55, label: 'L3: BillingService', type: 'services', active: false, pulseSize: 0, glowColor: 'rgba(255, 0, 96, ' },
       // Message Bus
-      { id: 'event-bus', x: 0.35, y: 0.75, label: 'L4: Event Broker', type: 'event', active: false, pulseSize: 0, glowColor: 'rgba(245, 158, 11, ' }, // amber
-      { id: 'cache', x: 0.65, y: 0.72, label: 'L3: Shared Cache', type: 'services', active: false, pulseSize: 0, glowColor: 'rgba(6, 182, 212, ' },
+      { id: 'event-bus', x: 0.35, y: 0.75, label: 'L4: Event Broker', type: 'event', active: false, pulseSize: 0, glowColor: 'rgba(222, 232, 114, ' }, // Lime Cream
+      { id: 'cache', x: 0.65, y: 0.72, label: 'L3: Shared Cache', type: 'services', active: false, pulseSize: 0, glowColor: 'rgba(183, 173, 153, ' }, // Khaki Beige
       // Storage Layer
-      { id: 'database', x: 0.5, y: 0.9, label: 'L5: Write Partition', type: 'db', active: false, pulseSize: 0, glowColor: 'rgba(6, 182, 212, ' }
+      { id: 'database', x: 0.5, y: 0.9, label: 'L5: Write Partition', type: 'db', active: false, pulseSize: 0, glowColor: 'rgba(183, 173, 153, ' } // Khaki Beige
     ];
 
     // Connections representing packet flows
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Visual highlight line if nodes connected are active
         const isActiveLine = fromNode.active || toNode.active;
-        ctx.strokeStyle = isActiveLine ? 'rgba(99, 102, 241, 0.4)' : 'rgba(255, 255, 255, 0.08)';
+        ctx.strokeStyle = isActiveLine ? 'rgba(255, 0, 96, 0.4)' : 'rgba(183, 173, 153, 0.2)'; // Fuchsia active connection line, Khaki Beige inactive line
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
@@ -252,11 +252,11 @@ document.addEventListener('DOMContentLoaded', () => {
           const px = x1 + (x2 - x1) * packet.progress;
           const py = y1 + (y2 - y1) * packet.progress;
 
-          ctx.fillStyle = isActiveLine ? '#06b6d4' : 'rgba(99, 102, 241, 0.8)';
+          ctx.fillStyle = isActiveLine ? '#DEE872' : 'rgba(255, 0, 96, 0.8)'; // active Lime Cream packet, inactive Fuchsia packet
           ctx.beginPath();
           ctx.arc(px, py, 3, 0, Math.PI * 2);
           ctx.shadowBlur = 10;
-          ctx.shadowColor = '#06b6d4';
+          ctx.shadowColor = '#DEE872';
           ctx.fill();
           ctx.shadowBlur = 0; // reset
         });
@@ -278,9 +278,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Outer Border
-        ctx.strokeStyle = n.active ? '#06b6d4' : 'rgba(255, 255, 255, 0.2)';
+        ctx.strokeStyle = n.active ? '#FF0060' : 'rgba(183, 173, 153, 0.4)'; // active Hot Fuchsia node border
         ctx.lineWidth = n.active ? 2 : 1;
-        ctx.fillStyle = n.active ? 'hsla(189, 94%, 43%, 0.15)' : 'rgba(19, 26, 44, 0.85)';
+        ctx.fillStyle = n.active ? 'rgba(255, 0, 96, 0.1)' : 'rgba(245, 242, 233, 0.85)'; // active Fuchsia background, inactive light warm beige background
         
         ctx.beginPath();
         ctx.arc(nx, ny, 10, 0, Math.PI * 2);
@@ -288,13 +288,13 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.stroke();
 
         // Node Inner Dot
-        ctx.fillStyle = n.active ? '#06b6d4' : '#6366f1';
+        ctx.fillStyle = n.active ? '#FF0060' : '#B7AD99'; // active Hot Fuchsia, inactive Khaki Beige inner dot
         ctx.beginPath();
         ctx.arc(nx, ny, 4, 0, Math.PI * 2);
         ctx.fill();
 
         // Draw Labels
-        ctx.fillStyle = n.active ? '#ffffff' : 'rgba(255, 255, 255, 0.6)';
+        ctx.fillStyle = n.active ? '#030301' : 'rgba(3, 3, 1, 0.6)'; // black labels for high contrast in light mode
         ctx.font = n.active ? 'bold 10px Space Grotesk' : '9px Space Grotesk';
         ctx.textAlign = 'center';
         ctx.fillText(n.label, nx, ny - 16);
@@ -344,32 +344,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const filterVal = btn.getAttribute('data-filter');
 
+      // First step: Fade out all cards smoothly to prevent abrupt layout shifts
       projectCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        
-        if (filterVal === 'all' || category === filterVal) {
-          card.style.display = 'flex';
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.95)';
+        card.style.transition = 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+      });
+
+      // Second step: After fade-out completes, update display states and fade matching cards back in
+      setTimeout(() => {
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
           
-          // Force layout calculation and apply transition
-          setTimeout(() => {
-            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          if (filterVal === 'all' || category === filterVal) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Force a layout reflow so the browser registers the display changes
+        void document.body.offsetHeight;
+
+        // Third step: Fade in matching cards with a smooth, premium ease-out transition
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filterVal === 'all' || category === filterVal) {
+            card.style.transition = 'opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
             card.style.opacity = '1';
             card.style.transform = 'scale(1)';
-          }, 50);
-        } else {
-          card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.95)';
-          
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 300);
-        }
-      });
+          }
+        });
+      }, 500);
     });
   });
+
 
 
   // ==========================================
@@ -480,6 +489,56 @@ document.addEventListener('DOMContentLoaded', () => {
     formResponse.textContent = messageText;
     formResponse.classList.add(statusType);
     formResponse.style.display = 'block';
+  }
+
+  // ==========================================
+  // 8. Custom Dropdown / Combobox Handling
+  // ==========================================
+  const dropdownInput = document.getElementById('subject');
+  const dropdownMenu = document.getElementById('subject-dropdown');
+  const dropdownContainer = dropdownInput.parentElement;
+  const dropdownItems = dropdownMenu.querySelectorAll('.dropdown-item');
+
+  dropdownInput.addEventListener('focus', () => {
+    dropdownMenu.style.display = 'block';
+    dropdownContainer.classList.add('open');
+    filterDropdownItems();
+  });
+
+  dropdownInput.addEventListener('input', () => {
+    dropdownMenu.style.display = 'block';
+    dropdownContainer.classList.add('open');
+    filterDropdownItems();
+  });
+
+  // Close dropdown on click outside
+  document.addEventListener('click', (e) => {
+    if (!dropdownContainer.contains(e.target)) {
+      dropdownMenu.style.display = 'none';
+      dropdownContainer.classList.remove('open');
+    }
+  });
+
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', () => {
+      dropdownInput.value = item.textContent;
+      dropdownMenu.style.display = 'none';
+      dropdownContainer.classList.remove('open');
+      // Dispatch input event to update label floating state
+      dropdownInput.dispatchEvent(new Event('input'));
+    });
+  });
+
+  function filterDropdownItems() {
+    const val = dropdownInput.value.toLowerCase().trim();
+    dropdownItems.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      if (text.includes(val)) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
   }
 
 });
