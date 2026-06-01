@@ -337,6 +337,24 @@ button, input, textarea, select {
   align-items: center;
 }
 
+.nav-btn .btn-secondary {
+  border: 1px solid var(--primary);
+  padding: 8px 20px;
+}
+
+.nav-btn .btn-secondary:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 15px -3px rgba(255, 0, 96, 0.2);
+}
+
+.nav-btn .btn-secondary span {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
 .menu-toggle {
   display: none;
   flex-direction: column;

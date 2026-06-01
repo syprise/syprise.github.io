@@ -513,7 +513,8 @@ document.addEventListener('DOMContentLoaded', () => {
   dropdownInput.addEventListener('focus', () => {
     dropdownMenu.style.display = 'block';
     dropdownContainer.classList.add('open');
-    filterDropdownItems();
+    // Show all items by default on focus so the user can see the entire list
+    dropdownItems.forEach(item => item.style.display = 'block');
   });
 
   dropdownInput.addEventListener('input', () => {
@@ -535,8 +536,6 @@ document.addEventListener('DOMContentLoaded', () => {
       dropdownInput.value = item.textContent;
       dropdownMenu.style.display = 'none';
       dropdownContainer.classList.remove('open');
-      // Dispatch input event to update label floating state
-      dropdownInput.dispatchEvent(new Event('input'));
     });
   });
 
