@@ -368,7 +368,7 @@ button, input, textarea, select {
   display: block;
   width: 24px;
   height: 2px;
-  background-color: var(--text-primary);
+  background-color: var(--primary);
   transition: var(--transition-normal);
 }
 
